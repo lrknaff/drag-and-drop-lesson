@@ -1,0 +1,12 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #33363D;
+	color: white;
+	font-family: 'Lato';
+	font-weight: 300;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
