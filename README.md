@@ -5,7 +5,9 @@
 Feel free to clone down this repo and follow along at your own pace or create a new codepen and code along with us.
 
 First, let's grab this boilerplate HTML:
-`<html>
+
+````
+<html>
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="reset.css">
@@ -57,7 +59,7 @@ First, let's grab this boilerplate HTML:
   </body>
 
 </html>
-`
+````
 
 ###Step 2: Making Item Draggable
 Elements on the page can be made draggable simply by adding a *draggable* attribute:
@@ -86,10 +88,11 @@ The events we’ll need to work with when creating a drop zone are **dragenter**
 ####Drop
 We want to target the approved ul element as our drop zone. In order to do this, we’ll attach a listener to this element for the drop event:
 
-`
+````
 $('.kanban-column-approved').on('drop', function(event) {
   console.log('Dropped!');
-});`
+});
+````
 
 So, when we drag and drop the item over the ul element why don't we see 'Dropped!' in the console?
 
@@ -97,7 +100,7 @@ Normally, elements on a page are not valid places to drop data. Therefore, the d
 
 Not only must we prevent the default behavior in our drop event, but we also must cancel any other drag events that are occurring at the same time. Remember we said that the dragover event could be fired every hundred milliseconds. If we do not cancel this event, it will continue to block our ability to fire the drop event. Let’s add event.preventDefault() to our drop event, and also handle the dragover event:
 
-`
+````
 $('.kanban-column-approved')
 .on('drop', function(e) {
   e.preventDefault();
@@ -106,7 +109,7 @@ $('.kanban-column-approved')
 .on('dragover', function(e) {
    e.preventDefault();
  });
- `
+ ````
 
 We should now see our ‘Dropped!’ message logged to the console when we try dragging a list element into the zone.
 
@@ -116,30 +119,36 @@ Remember we said that drag and drop functionality isn’t always intuitive for a
 
 We can hook into the **dragenter** and **dragleave** events to toggle this class depending on if a user’s mouse is positioned within the drop zone:
 
-` .on('dragenter', function(e) {
+````
+.on('dragenter', function(e) {
    $(this).addClass('drop-zone-active');
  })
  .on('dragleave', function(e) {
    $(this).removeClass('drop-zone-active')
- })`
+ })
+ ````
 
 Now, you should see the border highlite each time your mouse enters and leaves the drop zone. This behaves similarly to the hover effect in CSS, but we only want this class applied during a drag and drop operation. If we implemented this behavior with CSS hover, we’d notice the highlighted border every time our mouse entered the drop zone, regardless of whether or not we were holding an element to drop.
 
 You’ll notice when you actually perform the drop event, the class remains activated. We’ll want to remove it after a drop event as well:
 
-`$('.kanban-column-approved')
+````
+$('.kanban-column-approved')
 .on('drop', function(e) {
   e.preventDefault();
   console.log('Dropped!')
   $(this).removeClass('drop-zone-active')
-})`
+})
+````
 
 ###Step 5: Defining Data
 A good time to define the data we want to transfer is in the very beginning of the process, on the dragstart event. Because dragstart is fired as soon as we grab our draggable element, we need to attach a listener to our draggable elements to handle it:
 
-`$('.drag-item').on('dragStart', function(e) {
+````
+$('.drag-item').on('dragStart', function(e) {
   e.originalEvent.dataTransfer.setData('listItem', $(this).index())
-})`
+})
+````
 
 *NOTE: Because we are using jQuery, we are recieving a jQuery event object when we run our event handlers. This object is slightly different than the native event you get when using vanilla JavaScript. The jQuery event object does not have a dataTransfer property. Because of this, we have to call setData() on e.originalEvent.dataTransfer rather than just e.dataTransfer.*
 
@@ -153,13 +162,15 @@ The getData method takes a single argument - the descriptive string you used as 
 
 Now, in our drop event, we can use that index value we receive from getData, and select the list item to append to our completed list:
 
-`$('.kanban-column-approved')
+````
+$('.kanban-column-approved')
 .on('drop', function(e) {
   e.preventDefault();
   console.log('Dropped!');
   $(this).removeClass('drop-zone-active');
   let listItemIndex = e.originalEvent.dataTransfer.getData('listItem');
   $(this).append($('.drag-item').eq(listItemIndex))
-})`
+})
+````
 
 If we refresh our page, we should now be able to move to do list items into the completed box. This is a super basic example of implementing drag and drop. Interfaces can get much more complicated than this, and it’s important to keep your users in mind when you use this API.
