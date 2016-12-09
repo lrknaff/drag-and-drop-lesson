@@ -18,6 +18,13 @@ h1 {
   letter-spacing: 1px;
 }
 
+h2 {
+	font-size: 0.8rem;
+	margin: 0;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
 h4 {
 	font-size: 18px;
 }
@@ -40,4 +47,52 @@ header {
 .kanban-container {
 	margin: 20px auto;
 	max-width: 1000px;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.kanban-list {
+	display: flex;
+	align-items: flex-start;
+}
+
+.kanban-column {
+	flex: 1;
+	margin: 0 auto;
+	position: relative;
+	background: rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+}
+
+.kanban-column-header {
+	background: #FF9800;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.drag-inner-list {
+	min-height: 50px;
+}
+
+.drag-item {
+	margin: 10px;
+	height: 100px;
+	background: rgba(0, 0, 0, 0.4);
+}
+
+/* mobile */
+
+@media (max-width: 690px) {
+	.kanban-list {
+		display: block;
+	}
+
+	.kanban-column {
+		margin-bottom: 30px;
+	}
 }
