@@ -19,7 +19,7 @@ h1 {
 }
 
 h2 {
-	font-size: 0.8rem;
+	font-size: 16px;
 	margin: 0;
 	text-transform: uppercase;
 	font-weight: 400;
@@ -35,7 +35,7 @@ a {
 	text-decoration: none;
 }
 
-/* header styles */
+/* Intro */
 
 header {
 	padding: 20px;
@@ -61,18 +61,29 @@ ul {
 
 .kanban-column {
 	flex: 1;
-	margin: 0 auto;
+	margin: 0 10px;
 	position: relative;
 	background: rgba(0, 0, 0, 0.2);
 	overflow: hidden;
 }
 
 .kanban-column-header {
-	background: #FF9800;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding: 10px;
+}
+
+.header-onhold {
+	background: #FF9800;
+}
+
+.header-inprogress {
+	background: #009688;
+}
+
+.header-approved {
+	background: #8BC34A;
 }
 
 .drag-inner-list {
