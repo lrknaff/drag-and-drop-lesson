@@ -96,6 +96,10 @@ ul {
 	background: rgba(0, 0, 0, 0.4);
 }
 
+.drag-item:active {
+	color: white;
+}
+
 /* mobile */
 
 @media (max-width: 690px) {
