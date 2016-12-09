@@ -61,6 +61,126 @@ First, let's grab this boilerplate HTML:
 </html>
 ````
 
+and CSS:
+
+ ````
+ * {
+ 	box-sizing: border-box;
+ }
+
+ body {
+ 	background: #33363D;
+ 	color: white;
+ 	font-family: 'Roboto', sans-serif;
+ 	font-weight: 400;
+ 	line-height: 1.5;
+   text-align: center;
+ 	-webkit-font-smoothing: antialiased;
+ }
+
+ h1 {
+   font-size: 40px;
+   font-weight: 500;
+   letter-spacing: 1px;
+ }
+
+ h2 {
+ 	font-size: 16px;
+ 	margin: 0;
+ 	text-transform: uppercase;
+ 	font-weight: 400;
+ }
+
+ h4 {
+ 	font-size: 18px;
+ }
+
+ a {
+ 	color: #00BCD4;
+ 	font-weight: 500;
+ 	text-decoration: none;
+ }
+
+ /* Intro */
+
+ header {
+ 	padding: 20px;
+ 	text-align: center;
+ }
+
+ /* Kanban board */
+
+ .kanban-container {
+ 	margin: 20px auto;
+ 	max-width: 1000px;
+ }
+
+ ul {
+ 	list-style-type: none;
+ 	padding: 0;
+ }
+
+ .kanban-list {
+ 	display: flex;
+ 	align-items: flex-start;
+ }
+
+ .kanban-column {
+ 	flex: 1;
+ 	margin: 0 10px;
+ 	position: relative;
+ 	background: rgba(0, 0, 0, 0.2);
+ 	overflow: hidden;
+ }
+
+ .kanban-column-header {
+ 	display: flex;
+ 	align-items: center;
+ 	justify-content: space-between;
+ 	padding: 10px;
+ }
+
+ .header-onhold {
+ 	background: #FF9800;
+ }
+
+ .header-inprogress {
+ 	background: #009688;
+ }
+
+ .header-approved {
+ 	background: #8BC34A;
+ }
+
+ .drag-inner-list {
+ 	min-height: 50px;
+ }
+
+ .drag-item {
+ 	margin: 10px;
+ 	height: 100px;
+ 	background: rgba(0, 0, 0, 0.4);
+ }
+
+
+ /* micro-interactions */
+/* add glowing border here */
+
+
+ /* mobile */
+
+ @media (max-width: 690px) {
+ 	.kanban-list {
+ 		display: block;
+ 	}
+
+ 	.kanban-column {
+ 		margin-bottom: 30px;
+ 	}
+ }
+````
+
+
 ###Step 2: Making Item Draggable
 Elements on the page can be made draggable simply by adding a *draggable* attribute:
 
