@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="reset.css">
-    <title>Drag and Drop Kanban Board</title>
+    <title>Drag and Drop List</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,500" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=true;">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   </head>
 
     <body>
       <header>
-        <h1>Drag and Drop Kanban Board</h1>
+        <h1>Drag and Drop List</h1>
         <h4>Inspired by <a href="https://codepen.io/ettrics/pen/QbPEeg">this codepen.</a></h4>
       </header>
 
@@ -19,21 +19,11 @@
         <ul class="kanban-list">
           <li class="kanban-column kanban-column-onhold">
           <span class="kanban-column-header header-onhold">
-            <h2>On hold</h2>
+            <h2>To Do</h2>
           </span>
-          <div class="kanban-options" id="options1"></div>
-          <ul class="drag-inner-list" id="1">
+          <div class="kanban-options"></div>
+          <ul class="drag-inner-list">
             <li class="drag-item" draggable="true"></li>
-            <li class="drag-item" draggable="true"></li>
-          </ul>
-          </li>
-
-          <li class="kanban-column kanban-column-inprogress">
-          <span class="kanban-column-header header-inprogress">
-            <h2>In progress</h2>
-          </span>
-          <div class="kanban-options" id="options2"></div>
-          <ul class="drag-inner-list" id="2">
             <li class="drag-item" draggable="true"></li>
             <li class="drag-item" draggable="true"></li>
             <li class="drag-item" draggable="true"></li>
@@ -45,11 +35,9 @@
           <span class="kanban-column-header header-approved">
             <h2>Approved</h2>
           </span>
-          <div class="kanban-options" id="options3"></div>
+          <div class="kanban-options"></div>
 
-          <ul class="drag-inner-list" id="3">
-            <li class="drag-item" draggable="true"></li>
-            <li class="drag-item" draggable="true"></li>
+          <ul class="drag-inner-list">
             <li class="drag-item" draggable="true"></li>
           </ul>
           </li>
@@ -58,6 +46,7 @@
       </div>
 
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
     <script src="scripts.js"></script>
   </body>
 
